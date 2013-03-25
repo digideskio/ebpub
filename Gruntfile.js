@@ -1,4 +1,4 @@
-// Generated on 2013-03-21 using generator-webapp 0.1.5
+// Generated on 2013-03-25 using generator-webapp 0.1.5
 'use strict';
 var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
 var mountFolder = function (connect, dir) {
@@ -160,7 +160,7 @@ module.exports = function (grunt) {
                 files: {
                     '<%= yeoman.dist %>/scripts/main.js': [
                         '<%= yeoman.app %>/scripts/{,*/}*.js'
-                    ],
+                    ]
                 }
             }
         },
