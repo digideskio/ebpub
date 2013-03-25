@@ -1,0 +1,38 @@
+.container {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.container-cols {
+    clear: both;
+    overflow: hidden;
+}
+
+.section-page {
+    margin: 6em 40px;
+}
+
+#home {
+    .logo {
+        float: left;
+        width: 57%;
+    }
+    .content-main {
+        float: right;
+        width: 37%;
+    }
+    dl {
+        margin: 0 0 1em;
+    }
+}
+
+#about {
+    .content-main {
+        float: left;
+        width: 57%;
+    }
+    .logo-explained {
+        float: right;
+        width: 37%;
+    }
+}

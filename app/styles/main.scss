@@ -1,10 +1,11 @@
-$bgcol: #ccc;
+@import 'variables';
 
-body {
-    background: $bgcol;
-}
+@import 'compass/css3';
+@import 'normalize.scss/normalize';
 
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
-}
+@import 'layout/defaults';
+@import 'layout/main';
+@import 'layout/banner';
+
+@import 'helpers/h5bp';
+@import 'helpers/helpers';

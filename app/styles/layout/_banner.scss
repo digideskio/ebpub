@@ -1,0 +1,35 @@
+#banner {
+    height: 34px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    @include background-image(linear-gradient(rgba(0, 64, 128, 0.4), rgba(0, 64, 128, 0.25), rgba(0, 64, 128, 0.4)));
+    @include single-box-shadow(rgba(0, 0, 0, 0.75), 0, 2px, 4px);
+    .mainMenu {
+        margin: 0;
+        overflow: hidden;
+        padding: 0;
+        li {
+            display: block;
+            float: left;
+        }
+        a {
+            background-color: rgba(210, 225, 238, 0.9);
+            border: 1px solid (rgba(0, 64, 128, 0.5));
+            color: #333;
+            display: block;
+            height: 20px;
+            line-height: 20px;
+            margin: 6px 0 0 1em;
+            padding: 0 1em;
+            @include border-radius(3px);
+            @include background-image(linear-gradient(rgba(255, 255, 255, 0.9), rgba(210, 225, 238, 0.9), rgba(255, 255, 255, 0.9)));
+            @include single-box-shadow(rgba(0, 0, 0, 0.5), 1px, 1px, 1px, 0, inset);
+        }
+        a:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            @include single-box-shadow(rgba(0, 0, 0, 0.5), 0, 0, 0, 0);
+        }
+    }
+}
