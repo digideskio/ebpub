@@ -14,6 +14,7 @@ var mountFolder = function (connect, dir) {
 module.exports = function (grunt) {
     // load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+    grunt.loadNpmTasks('grunt-contrib-jade');
 
     // configurable paths
     var yeomanConfig = {
@@ -23,6 +24,21 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         yeoman: yeomanConfig,
+        // compile .jade files using jade
+        jade: {
+            dist: {
+                options: {
+                    pretty: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>/jade',
+                    dest: '.tmp',
+                    src: '*.jade',
+                    ext: '.html'
+                }]
+            }
+        },
         watch: {
             coffee: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
@@ -36,9 +52,14 @@ module.exports = function (grunt) {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass']
             },
+            jade: {
+                files: ['<%= yeoman.app %>/{,*/}*.jade'],
+                tasks: ['jade']
+            },
             livereload: {
                 files: [
-                    '<%= yeoman.app %>/*.html',
+                    //'<%= yeoman.app %>/*.html',
+                    '{.tmp,<%= yeoman.app %>}/{,*/}*.html',
                     '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,webp}'
@@ -213,7 +234,8 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>',
-                    src: '*.html',
+                    //src: '*.html',
+                    src: '{,*/}*.html',
                     dest: '<%= yeoman.dist %>'
                 }]
             }
@@ -250,6 +272,7 @@ module.exports = function (grunt) {
             'clean:server',
             'coffee:dist',
             'compass:server',
+            'jade',
             'livereload-start',
             'connect:livereload',
             'open',
@@ -269,6 +292,7 @@ module.exports = function (grunt) {
         'clean:dist',
         'coffee',
         'compass:dist',
+        'jade',
         'useminPrepare',
         'imagemin',
         'htmlmin',
