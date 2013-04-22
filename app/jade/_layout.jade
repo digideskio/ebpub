@@ -1,0 +1,68 @@
+!!! 5
+//if lt IE 7
+  html.no-js.lt-ie9.lt-ie8.lt-ie7
+//if IE 7
+  html.no-js.lt-ie9.lt-ie8
+//if IE 8
+  html.no-js.lt-ie9
+// [if gt IE 8] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title Experience Bureau
+    meta(name='description', content='Experience Bureau specialises in website and application design and development with a focus on interactivity, usability and the user experience.')
+    meta(name='viewport', content='width=device-width')
+    // Place favicon.ico and apple-touch-icon.png in the root directory
+    link(rel='stylesheet', href='/styles/main.css')
+    // build:js(app) /scripts/vendor/modernizr.js
+    script(src='/components/modernizr/modernizr.js')
+    // endbuild
+  body
+    header#banner
+      h1.ir Experience Bureau
+      nav
+        ul.mainMenu
+          li
+            a(href='/') Home
+          li
+            a(href='/about') About
+          li
+            a(href='/work') Work
+          li
+            a(href='/contact') Contact
+    .container
+      //if lt IE 7
+        p.chromeframe
+          | You are using an
+          strong outdated
+          | browser. Please
+          a(href='http://browsehappy.com/') upgrade your browser
+          | or
+          a(href='http://www.google.com/chromeframe/?redirect=true') activate Google Chrome Frame
+          | to improve your experience.
+      section#home.section-page
+
+        // HOME
+        block section_home
+
+      section#about.section-page
+
+        // ABOUT
+        block section_about
+
+      section#work.section-page
+
+        // WORK
+        block section_work
+
+      section#contact.section-page
+
+        // CONTACT
+        block section_contact
+
+    // build:js(app) /scripts/main.js
+    script(src='/components/jquery/jquery.js')
+    script(src='/scripts/main.js')
+    // endbuild

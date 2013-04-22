@@ -14,7 +14,6 @@ var mountFolder = function (connect, dir) {
 module.exports = function (grunt) {
     // load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-    grunt.loadNpmTasks('grunt-contrib-jade');
 
     // configurable paths
     var yeomanConfig = {
@@ -34,7 +33,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: '<%= yeoman.app %>/jade',
                     dest: '.tmp',
-                    src: '*.jade',
+                    src: '*{,/*}.jade',
                     ext: '.html'
                 }]
             }
@@ -53,7 +52,7 @@ module.exports = function (grunt) {
                 tasks: ['compass']
             },
             jade: {
-                files: ['<%= yeoman.app %>/{,*/}*.jade'],
+                files: ['<%= yeoman.app %>/jade/{,*/}*.jade'],
                 tasks: ['jade']
             },
             livereload: {
@@ -115,7 +114,11 @@ module.exports = function (grunt) {
         },
         jshint: {
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: '.jshintrc',
+                globals: {
+                    jQuery: true,
+                    $: true
+                }
             },
             all: [
                 'Gruntfile.js',
@@ -175,18 +178,30 @@ module.exports = function (grunt) {
         /*concat: {
             dist: {}
         },*/
-        
-        uglify: {
+
+        // not used because this is handled by the yeoman build comment blocks in the templates
+        /*uglify: {
             dist: {
                 files: {
                     '<%= yeoman.dist %>/scripts/main.js': [
-                        '<%= yeoman.app %>/scripts/{,*/}*.js'
+                        '<%= yeoman.app %>/scripts/{,*//*}*.js'
+                    ]
+                }
+            }
+        },*/
+
+        rev: {
+            dist: {
+                files: {
+                    src: [
+                        '<%= yeoman.dist %>/scripts/{,*/}*.js',
+                        '<%= yeoman.dist %>/styles/{,*/}*.css'
                     ]
                 }
             }
         },
         useminPrepare: {
-            html: '<%= yeoman.app %>/index.html',
+            html: '.tmp/index.html',
             options: {
                 dest: '<%= yeoman.dist %>'
             }
@@ -233,9 +248,13 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>',
+                    cwd: '.tmp',
                     //src: '*.html',
-                    src: '{,*/}*.html',
+                    src: [
+                        '{,*/}*.html',
+                        '!_layout.html',
+                        '!_includes/*.html'
+                    ],
                     dest: '<%= yeoman.dist %>'
                 }]
             }
@@ -300,6 +319,7 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'copy',
+        'rev',
         'usemin'
     ]);
 

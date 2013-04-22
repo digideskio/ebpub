@@ -1,0 +1,23 @@
+header
+    h1 Contact Experience Bureau
+    p
+        | If you’re interested in working with Experience Bureau,
+        b please get in touch
+        | so that we can get things started.
+    ul
+        li +61 466438677
+        li experiencebureau
+        li
+            a(href='mailto:info@experiencebureau.com') info@experiencebureau.com
+    form
+        .formRow
+            label(for='contact_name') Name
+            input#contact_name(type='text')
+        .formRow
+            label(for='contact_email') Email address
+            input#contact_email(type='email')
+        .formRow
+            label(for='contact_message') Message
+            textarea#contact_message
+        .formRow.formActions
+            button(type='submit') Send message
