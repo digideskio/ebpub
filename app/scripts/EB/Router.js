@@ -39,7 +39,6 @@ EB.Router = Backbone.Router.extend({
     },
 
     loadContent: function () {
-        $('.interactive-text').hide();
         $('.section-page').each(function () {
             var $section = $(this),
                     contentUrl;
@@ -48,6 +47,8 @@ EB.Router = Backbone.Router.extend({
                 $section.load('/content/' + $section.data('content_file') + '.html', function() {
                     $('.interactive-text', $section).hide();
                 });
+            } else {
+                $('.interactive-text').hide();
             }
         });
     }
