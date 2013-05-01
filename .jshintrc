@@ -21,6 +21,8 @@
     "smarttabs": true,
     "globals": {
         "jQuery": true,
-        "$": true
+        "$": true,
+        "Backbone": true,
+        "_": true
     }
 }

@@ -42,27 +42,34 @@ html.no-js
           | or
           a(href='http://www.google.com/chromeframe/?redirect=true') activate Google Chrome Frame
           | to improve your experience.
-      section#home.section-page
+      section#home.section-page(data-content_file='home')
 
-        // HOME
+        //- HOME
         block section_home
 
-      section#about.section-page
+      section#about.section-page(data-content_file='about')
 
-        // ABOUT
+        //- ABOUT
         block section_about
 
-      section#work.section-page
+      section#work.section-page(data-content_file='work')
 
-        // WORK
+        //- WORK
         block section_work
 
-      section#contact.section-page
+      section#contact.section-page(data-content_file='contact')
 
-        // CONTACT
+        //- CONTACT
         block section_contact
 
     // build:js(app) /scripts/main.js
     script(src='/components/jquery/jquery.js')
-    script(src='/scripts/main.js')
+    script(src='/components/underscore/underscore.js')
+    script(src='/components/backbone/backbone.js')
+    script(src='/scripts/EB/utility.js')
+    script(src='/scripts/EB/application.js')
+    script(src='/scripts/EB/Router.js')
     // endbuild
+
+    script
+        EB.application.load();
