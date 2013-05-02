@@ -33,7 +33,7 @@ EB.View = Backbone.View.extend({
         var $footnote = this.$('.footnotes');
 
         $footnote.addClass('highlight');
-        _.delay(function() {
+        _.delay(function () {
             $footnote.removeClass('highlight');
         }, 5000);
     },

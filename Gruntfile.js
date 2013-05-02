@@ -114,16 +114,12 @@ module.exports = function (grunt) {
         },
         jshint: {
             options: {
-                jshintrc: '.jshintrc',
-                globals: {
-                    jQuery: true,
-                    $: true
-                }
+                jshintrc: '.jshintrc'
             },
             all: [
                 'Gruntfile.js',
                 '<%= yeoman.app %>/scripts/{,*/}*.js',
-                '!<%= yeoman.app %>/scripts/vendor/*',
+                '!<%= yeoman.app %>/scripts/libs/*',
                 'test/spec/{,*/}*.js'
             ]
         },

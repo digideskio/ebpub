@@ -61,7 +61,7 @@ EB.Router = Backbone.Router.extend({
     createView: function (id) {
         console.log('creating view for ', id);
         this.Views[id] = new EB.View({
-            el: 'section#'+id
+            el: 'section#' + id
         });
     },
 
