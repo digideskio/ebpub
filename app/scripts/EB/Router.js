@@ -7,6 +7,7 @@ EB.Router = Backbone.Router.extend({
 
     initialize: function () {
         console.log('initialising the router');
+        this.Views = {};
         this.loadContent();
     },
 
@@ -20,18 +21,22 @@ EB.Router = Backbone.Router.extend({
 
     pageHome: function () {
         console.log('load the home page content');
+        this.scrollToView('home');
     },
 
     pageAbout: function () {
         console.log('load the about page content');
+        this.scrollToView('about');
     },
 
     pageContact: function () {
         console.log('load the contact page content');
+        this.scrollToView('contact');
     },
 
     pageWork: function () {
         console.log('load the work page content');
+        this.scrollToView('work');
     },
 
     fallbackHandler: function (splat) {
@@ -39,18 +44,32 @@ EB.Router = Backbone.Router.extend({
     },
 
     loadContent: function () {
-        $('.section-page').each(function () {
-            var $section = $(this),
-                    contentUrl;
+        var thisRouter = this;
 
-            if (!$('.section-header',$section).length) {
-                $section.load('/content/' + $section.data('content_file') + '.html', function() {
-                    $('.interactive-text', $section).hide();
+        $('.section-page').each(function () {
+            var $section = $(this);
+            if (!$('.section-inner', $section).length) {
+                $section.load('/content/' + $section.data('content_file') + '.html', function () {
+                    thisRouter.createView($section.attr('id'));
                 });
             } else {
-                $('.interactive-text').hide();
+                thisRouter.createView($section.attr('id'));
             }
         });
+    },
+
+    createView: function (id) {
+        console.log('creating view for ', id);
+        this.Views[id] = new EB.View({
+            el: 'section#'+id
+        });
+    },
+
+    scrollToView: function (id) {
+        var targetOffset = $('#' + id).offset().top;
+        $('html:not(:animated),body:not(:animated)').animate({scrollTop: targetOffset}, 350);
     }
+
+
 
 });

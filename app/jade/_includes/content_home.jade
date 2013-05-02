@@ -1,49 +1,51 @@
-header.section-header
-    h1.visuallyhidden Introducing Experience Bureau
-.container-cols
-    .logo
-        img(src='/images/experience_bureau_main.png', alt='Experience Bureau Logo')
-    .content-main
-        dl.definitions
-            dt
-                | Experience
-                b  (ĭk-spîr'ē-əns)
-            dd
-                strong 1.
-                |  actual observation of or practical acquaintance with facts or events.
-            dd
-                strong 2.
-                |  knowledge or skill resulting from this.
-            dd
-                strong 3.
-                |  an event regarded as affecting one.
-            dd
-                a.footnoteLink(href='#fn1') *
-        dl.definitions
-            dt
-                | Bureau
-                b  (byŏŏr'ō)
-            dd
-                strong 1.
-                |  an office or department for transacting specific business.
-            dd
-                strong 2.
-                |  a writing desk with drawers...
-            dd
-                a.footnoteLink(href='#fn1') *
-        footer
-            h1.visuallyhidden Footnotes
-            dl.footnotes
-                dt#fn1 *
-                dd Oxford Concise English Dictionary (abridged)
-aside#defn-experience.interactive-text
-    header
-        h1 Another definition of "Experience"
-    blockquote
-        | The one thing you can guarantee all users of your site or application will leave with.
-    p Make sure it's a good one.
-aside#defn-bureau.interactive-text
-    header
-        h1 Another definition of "Bureau"
-    blockquote
-        | An outsourcing facility - in this case for the design and development of creative and engaging user experiences.
+div.section-inner
+    header.section-header
+        h1.visuallyhidden Introducing Experience Bureau
+    .container-cols
+        .logo
+            img(src='/images/experience_bureau_main.png', alt='Experience Bureau Logo')
+        .content-main
+            dl.definitions
+                dt
+                    a.interactive-link(href='#defn-experience') Experience
+                    b  (ĭk-spîr'ē-əns)
+                dd
+                    strong 1.
+                    |  actual observation of or practical acquaintance with facts or events.
+                dd
+                    strong 2.
+                    |  knowledge or skill resulting from this.
+                dd
+                    strong 3.
+                    |  an event regarded as affecting one.
+                dd
+                    a.footnote-link(href='#fn1') *
+            dl.definitions
+                dt
+                    a.interactive-link(href='#defn-bureau') Bureau
+                    b  (byŏŏr'ō)
+                dd
+                    strong 1.
+                    |  an office or department for transacting specific business.
+                dd
+                    strong 2.
+                    |  a writing desk with drawers...
+                dd
+                    a.footnote-link(href='#fn1') *
+            footer
+                h1.visuallyhidden Footnotes
+                dl.footnotes
+                    dt
+                        a#fn1(name='fn1') *
+                    dd.smallText Oxford Concise English Dictionary (abridged)
+    aside#defn-experience.interactive-text
+        header
+            h1 Another definition of "Experience"
+        blockquote
+            | The one thing you can guarantee all users of your site or application will leave with.
+        p Make sure it's a good one.
+    aside#defn-bureau.interactive-text
+        header
+            h1 Another definition of "Bureau"
+        blockquote
+            | An outsourcing facility - in this case for the design and development of creative and engaging user experiences.

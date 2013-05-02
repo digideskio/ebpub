@@ -7,7 +7,7 @@ EB.application = (function () {
 
 
     var handleLinks = function () {
-        $('a').on('click', function (){
+        $('#banner a').on('click', function () {
             var $clicked = $(this);
 
             console.log('clicked', $clicked.attr('href'), $clicked);
