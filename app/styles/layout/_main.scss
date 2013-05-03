@@ -35,6 +35,13 @@
     background-color: $ltYellow;
 }
 
+.interactive-text-inner {
+    position: relative;
+    h1 {
+        @include adjust-font-size-to( $h4-font-size );
+    }
+}
+
 #home {
     .logo {
         float: left;

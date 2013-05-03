@@ -7,7 +7,7 @@ div.section-inner
         .content-main
             dl.definitions
                 dt
-                    a.interactive-link(href='#defn-experience') Experience
+                    a#test1.interactive-link(href='#defn-experience') Experience
                     b  (ĭk-spîr'ē-əns)
                 dd
                     strong 1.
@@ -22,7 +22,7 @@ div.section-inner
                     a.footnote-link(href='#fn1') *
             dl.definitions
                 dt
-                    a.interactive-link(href='#defn-bureau') Bureau
+                    a#test2.interactive-link(href='#defn-bureau') Bureau
                     b  (byŏŏr'ō)
                 dd
                     strong 1.
@@ -38,14 +38,16 @@ div.section-inner
                     dt
                         a#fn1(name='fn1') *
                     dd.smallText Oxford Concise English Dictionary (abridged)
-    aside#defn-experience.interactive-text
-        header
-            h1 Another definition of "Experience"
-        blockquote
-            | The one thing you can guarantee all users of your site or application will leave with.
-        p Make sure it's a good one.
-    aside#defn-bureau.interactive-text
-        header
-            h1 Another definition of "Bureau"
-        blockquote
-            | An outsourcing facility - in this case for the design and development of creative and engaging user experiences.
+    #defn-experience.interactive-text
+        aside.interactive-text-inner
+            header
+                h1 Another definition of "Experience"
+            blockquote
+                | The one thing you can guarantee all users of your site or application will leave with.
+            p Make sure it's a good one.
+    #defn-bureau.interactive-text
+        aside.interactive-text-inner
+            header
+                h1 Another definition of "Bureau"
+            blockquote
+                | An outsourcing facility - in this case for the design and development of creative and engaging user experiences.

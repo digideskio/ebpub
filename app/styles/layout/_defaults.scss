@@ -27,7 +27,14 @@ p {
 dl {
     margin: 0;
 }
+
 dt, dd {
     display: inline;
     margin: 0;
+}
+
+blockquote {
+    font-style: italic;
+    margin-left: 0;
+    margin-right: 0;
 }

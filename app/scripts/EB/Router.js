@@ -13,9 +13,9 @@ EB.Router = Backbone.Router.extend({
 
     routes: {
         '':                     'pageHome',
-        'about':                'pageAbout',
-        'contact':              'pageContact',
-        'work':                 'pageWork',
+        'about(/)':             'pageAbout',
+        'contact(/)':           'pageContact',
+        'work(/)':              'pageWork',
         '*fallback':            'fallbackHandler'
     },
 
@@ -66,8 +66,11 @@ EB.Router = Backbone.Router.extend({
     },
 
     scrollToView: function (id) {
-        var targetOffset = $('#' + id).offset().top;
-        $('html:not(:animated),body:not(:animated)').animate({scrollTop: targetOffset}, 350);
+        _.delay(function () {
+            var targetOffset = $('#' + id).offset().top;
+            console.log('scroll to ', id);
+            $('html:not(:animated),body:not(:animated)').animate({scrollTop: targetOffset}, 350);
+        }, 300);
     }
 
 

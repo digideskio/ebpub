@@ -6,8 +6,8 @@ EB.util.namespace('View');
 EB.View = Backbone.View.extend({
 
     initialize: function () {
-        _.bindAll(this, 'render', 'setSectionHeight', 'setTooltips');
-        this.$('.interactive-text').hide();
+        _.bindAll(this, 'render', 'setSectionHeight', 'setTooltips', 'setInteractiveText');
+        this.setInteractiveText();
         this.setSectionHeight();
         this.setTooltips();
     },
@@ -38,7 +38,9 @@ EB.View = Backbone.View.extend({
         }, 5000);
     },
 
-    handleInteractiveLink: function (ev) {
+    handleInteractiveLink: function(ev) {
+        console.log('clicked popup link', $(ev.target));
+        $(ev.target).tooltipster('show');
         ev.preventDefault();
     },
 
@@ -51,9 +53,28 @@ EB.View = Backbone.View.extend({
             $tooltipLink.tooltipster({
                 content: $tooltipContent.html(),
                 maxWidth: 300,
-                trigger: 'click'
+                theme: '.tooltipster-light',
+                trigger: 'custom',
+                functionReady: function ($origin, $tooltip) {
+                    $('body').on('click', function(ev) {
+                        console.log('close a tip');
+                        ev.preventDefault();
+                        $origin.tooltipster('hide');
+                    });
+                    $(window).on('scroll', function() {
+                        $origin.tooltipster('hide');
+                    });
+                },
+                functionAfter: function () {
+                    $('body').off('click');
+                    $(window).off('scroll');
+                }
             });
         });
+    },
+
+    setInteractiveText: function () {
+        this.$('.interactive-text').hide();
     }
 
 
