@@ -56,19 +56,23 @@ EB.View = Backbone.View.extend({
                 theme: '.tooltipster-light',
                 trigger: 'custom',
                 functionReady: function ($origin, $tooltip) {
+                    $('body').off('click');
+                    $(window).off('scroll');
                     $('body').on('click', function(ev) {
                         console.log('close a tip');
                         ev.preventDefault();
-                        $origin.tooltipster('hide');
+                        if (! $(ev.target).hasClass('interactive-link')) {
+                            $origin.tooltipster('hide');
+                        }
                     });
                     $(window).on('scroll', function() {
                         $origin.tooltipster('hide');
                     });
-                },
+                }/*,
                 functionAfter: function () {
                     $('body').off('click');
                     $(window).off('scroll');
-                }
+                }*/
             });
         });
     },
