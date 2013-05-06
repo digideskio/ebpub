@@ -1,0 +1,59 @@
+.container {
+    padding: 0;
+}
+
+.fw-image {
+    width: 100%;
+}
+
+.section-header {
+    h1 {
+        font-weight: bold;
+        @include adjust-font-size-to( $h1-font-size );
+    }
+}
+
+#home {
+    .logo {
+        float: left;
+        margin: 0;
+        width: 51%;
+    }
+    .content-main {
+        float: right;
+        width: 37%;
+    }
+}
+
+#about {
+    .content-main {
+        float: left;
+        margin: 0;
+        width: 57%;
+    }
+    .fw-image {
+        max-width: 100%;
+        width: 100%;
+    }
+    .logo-explained {
+        float: right;
+        width: 37%;
+    }
+    .logo-about {
+        padding: 0 10%;
+    }
+}
+
+#contact {
+    .content-main {
+        float: left;
+        width: 37%;
+    }
+    .contact-form {
+        float: right;
+        width: 57%;
+    }
+    input {
+        width: 65%;
+    }
+}
