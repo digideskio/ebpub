@@ -60,14 +60,19 @@ EB.View = Backbone.View.extend({
             var $tooltipLink = $(this),
                     $tooltipContent = thisView.$($tooltipLink.attr('href')),
                     $body = $('body'),
-                    $window = $(window);
+                    $window = $(window),
+                    isInteractive = false;
+            
+            if ($tooltipLink.data('linkintip')) {
+                isInteractive = true;
+            }
             
             $tooltipLink.tooltipster({
                 content: $tooltipContent.html(),
                 maxWidth: 300,
                 theme: '.tooltipster-light',
                 trigger: 'custom',
-                interactive: true,
+                interactive: isInteractive,
                 functionReady: function ($origin) {
                     $body.off('click');
                     $window.off('scroll');
