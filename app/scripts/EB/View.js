@@ -67,6 +67,7 @@ EB.View = Backbone.View.extend({
                 maxWidth: 300,
                 theme: '.tooltipster-light',
                 trigger: 'custom',
+                interactive: true,
                 functionReady: function ($origin) {
                     $body.off('click');
                     $window.off('scroll');
