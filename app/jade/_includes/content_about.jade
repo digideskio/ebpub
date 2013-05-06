@@ -5,13 +5,11 @@ div.section-inner
         .content-main
             p
                 strong Experience Bureau
-                |  is owned and operated by
-                a.interactive-link(href='#moreAboutPete')  Peter Chappell
+                |  is owned and operated by 
+                a.tip-link.strong-link(href='#moreAboutPete') Peter Chappell
                 |  who has over 10 years
-                | experience working as a designer and developer of great user experiences on the web. Experience Bureau works collaboratively with other freelancers,
-                | small businesses and hopefully, one day...
-                a.interactive-link(href='#workWithExperienceBureau')  you
-                | !
+                | experience working as a designer and developer of great user experiences on the web. Experience Bureau works collaboratively with freelancers,
+                | small businesses and clients.
             ul.contentList
                 li User interface (UI) design and development.
                 li
@@ -24,29 +22,33 @@ div.section-inner
                     | Designing and organising information systems so that they make sense and work well.
                 li Design and development of websites and web applications.
             p
-                | In short... If you're planning or developing an interactive website or application, Experience Bureau can help.
+                | In short... If you're planning or developing an interactive website or application, 
+                a.strong-link.section-link(href="/contact") Experience Bureau can help
+                | .
         figure.logo-explained
-            img(src='/images/experience_bureau_no-tagline.png', alt='Experience Bureau logo cyrillic characters')
-            a(href='#moreAboutTheLogo') More about the logo
-            a(href='#moreAboutYou') More about "you"
-    #moreAboutPete.interactive-text
-        aside
+            img.svg-image(src='/images/experience_bureau-logo-shape.svg', alt='Experience Bureau logo cyrillic characters')
+            a.tip-link.logo-about.logo-about-whole(href='#moreAboutTheLogo') 
+                img(src='/images/text-about_the_logo.svg', alt='What is this logo about?')
+            a.tip-link.logo-about.logo-you-character(href='#moreAboutYou')
+                img(src='/images/text-you_character.svg', alt='Why is the "you" character special?')
+    #moreAboutPete.tip-text
+        aside.tip-text-inner
             header
                 h1 More about Peter Chappell
             p
                 | To find out more about Peter, download a copy of his CV or take look at his LinkedIn Profile.
-    #moreAboutTheLogo.interactive-text
-        aside.interactive-text-inner
+    #moreAboutTheLogo.tip-text
+        aside.tip-text-inner
             header
                 h1 "БЮРО" is "Bureau" in Cyrillic
             p
                 | The design of the Cyrillic alphabet is pretty neat in that, most of the time, the letters are pronounced only one way. Cyrillic script is very close to being phonetic. It also makes for beautiful shapes and interesting typography.
             p
                 | This balance between functional design and aesthetic is a good illustration of what Experience Bureau is about.
-    #moreAboutYou.interactive-text
-        aside.interactive-text-inner
+    #moreAboutYou.tip-text
+        aside.tip-text-inner
             header
                 h1 "Ю" = "You"
             p Well sort of...
             p
-                | The "Ю" character in "БЮРО" makes the sound "You". In the context of a website or application, "You" is normally the user - the most important person to consider.
+                | The "Ю" character in "БЮРО" makes the sound "you". In the context of a website or application, "you" is normally the user - the most important person to consider.

@@ -3,11 +3,11 @@ div.section-inner
         h1.visuallyhidden Introducing Experience Bureau
     .container-cols
         .logo
-            img(src='/images/experience_bureau_main.png', alt='Experience Bureau Logo')
+            img.svg-image(src='/images/experience_bureau-logo-main.svg', alt='Experience Bureau Logo')
         .content-main
             dl.definitions
                 dt
-                    a#test1.interactive-link(href='#defn-experience') Experience
+                    a#test1.tip-link.strong-link(href='#defn-experience') Experience
                     b  (ĭk-spîr'ē-əns)
                 dd
                     strong 1.
@@ -22,7 +22,7 @@ div.section-inner
                     a.footnote-link(href='#fn1') *
             dl.definitions
                 dt
-                    a#test2.interactive-link(href='#defn-bureau') Bureau
+                    a#test2.tip-link.strong-link(href='#defn-bureau') Bureau
                     b  (byŏŏr'ō)
                 dd
                     strong 1.
@@ -38,15 +38,16 @@ div.section-inner
                     dt
                         a#fn1(name='fn1') *
                     dd.smallText Oxford Concise English Dictionary (abridged)
-    #defn-experience.interactive-text
-        aside.interactive-text-inner
+    #defn-experience.tip-text
+        aside.tip-text-inner
             header
                 h1 Another definition of "Experience"
             blockquote
                 | The one thing you can guarantee all users of your site or application will leave with.
-            p Make sure it's a good one.
-    #defn-bureau.interactive-text
-        aside.interactive-text-inner
+            p 
+                strong Make sure it's a good one.
+    #defn-bureau.tip-text
+        aside.tip-text-inner
             header
                 h1 Another definition of "Bureau"
             blockquote

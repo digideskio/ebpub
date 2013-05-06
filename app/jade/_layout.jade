@@ -22,6 +22,7 @@ html.no-js
   body
     header#banner
       h1.ir Experience Bureau
+      img.svg-image.banner-image(src='/images/you.svg', alt='"You" shape from Experience Bureau Logo')
       nav
         ul.mainMenu
           li
@@ -42,23 +43,17 @@ html.no-js
           | or
           a(href='http://www.google.com/chromeframe/?redirect=true') activate Google Chrome Frame
           | to improve your experience.
+        
       section#home.section-page(data-content_file='home')
-
         //- HOME
         block section_home
-
       section#about.section-page(data-content_file='about')
-
         //- ABOUT
         block section_about
-
       section#work.section-page(data-content_file='work')
-
         //- WORK
         block section_work
-
       section#contact.section-page(data-content_file='contact')
-
         //- CONTACT
         block section_contact
 

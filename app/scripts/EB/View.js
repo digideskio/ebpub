@@ -6,15 +6,16 @@ EB.util.namespace('View');
 EB.View = Backbone.View.extend({
 
     initialize: function () {
-        _.bindAll(this, 'render', 'setSectionHeight', 'setTooltips', 'setInteractiveText');
-        this.setInteractiveText();
+        _.bindAll(this, 'render', 'setSectionHeight', 'setTooltips', 'setTooltipText', 'handleFootnoteLinks', 'handleTooltipLink', 'handleSectionLink');
+        this.setTooltipText();
         this.setSectionHeight();
         this.setTooltips();
     },
 
     events: {
         'click .footnote-link': 'handleFootnoteLinks',
-        'click .interactive-link': 'handleInteractiveLink'
+        'click .tip-link': 'handleTooltipLink',
+        'click .section-link': 'handleSectionLink'
     },
 
     setSectionHeight: function () {
@@ -37,48 +38,61 @@ EB.View = Backbone.View.extend({
             $footnote.removeClass('highlight');
         }, 5000);
     },
+    
+    getClickedTipLink: function ($clicked) {
+        if (!$clicked.hasClass('tip-link')) {
+            $clicked = $clicked.parents('.tip-link');
+        }
+        return $clicked;
+    },
 
-    handleInteractiveLink: function(ev) {
-        console.log('clicked popup link', $(ev.target));
-        $(ev.target).tooltipster('show');
+    handleTooltipLink: function (ev) {
+        var $clicked = this.getClickedTipLink($(ev.target));
+        console.log('clicked popup link', $clicked.attr('href'), $clicked);
+        $clicked.tooltipster('show');
         ev.preventDefault();
     },
 
     setTooltips: function () {
         var thisView = this;
 
-        this.$('.interactive-link').each(function () {
+        this.$('.tip-link').each(function () {
             var $tooltipLink = $(this),
-                    $tooltipContent = thisView.$($tooltipLink.attr('href'));
+                    $tooltipContent = thisView.$($tooltipLink.attr('href')),
+                    $body = $('body'),
+                    $window = $(window);
+            
             $tooltipLink.tooltipster({
                 content: $tooltipContent.html(),
                 maxWidth: 300,
                 theme: '.tooltipster-light',
                 trigger: 'custom',
-                functionReady: function ($origin, $tooltip) {
-                    $('body').off('click');
-                    $(window).off('scroll');
-                    $('body').on('click', function(ev) {
+                functionReady: function ($origin) {
+                    $body.off('click');
+                    $window.off('scroll');
+                    $origin = thisView.getClickedTipLink($origin);
+                    $body.on('click', function (ev) {
                         console.log('close a tip');
                         ev.preventDefault();
-                        if (! $(ev.target).hasClass('interactive-link')) {
+                        if (! thisView.getClickedTipLink($(ev.target)).hasClass('tip-link')) {
                             $origin.tooltipster('hide');
                         }
                     });
-                    $(window).on('scroll', function() {
+                    $window.on('scroll', function () {
                         $origin.tooltipster('hide');
                     });
-                }/*,
-                functionAfter: function () {
-                    $('body').off('click');
-                    $(window).off('scroll');
-                }*/
+                }
             });
         });
     },
 
-    setInteractiveText: function () {
-        this.$('.interactive-text').hide();
+    setTooltipText: function () {
+        this.$('.tip-text').hide();
+    },
+    
+    handleSectionLink: function (ev) {
+        ev.preventDefault();
+        EB.App.Router.navigate($(ev.target).attr('href'), true);
     }
 
 
