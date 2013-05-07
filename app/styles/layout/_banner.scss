@@ -5,6 +5,7 @@
     position: fixed;
     right: 0;
     top: 0;
+    z-index: 10;
     //@include background-image(linear-gradient(rgba($eb-ltBlue, 0.8), rgba($eb-ltBlue, 0.9), rgba($eb-ltBlue, 0.97)));
     //@include background-image(linear-gradient(rgba($eb-dkBlue, 0.8), rgba($eb-dkBlue, 0.9), rgba($eb-dkBlue, 0.97)));
     @include background-image(linear-gradient(rgba($eb-black, 0.8), rgba($eb-black, 0.9), rgba($eb-black, 0.97)));

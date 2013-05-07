@@ -59,9 +59,15 @@ EB.Router = Backbone.Router.extend({
     },
 
     createView: function (id) {
+        var thisRouter = this;
         console.log('creating view for ', id);
+        
         this.Views[id] = new EB.View({
             el: 'section#' + id
+        });
+        this.Views[id].on('loaded', function () {
+            console.log('loaded triggered for', id);
+            thisRouter.checkAllContentLoaded();
         });
     },
 

@@ -14,6 +14,7 @@ EB.View = Backbone.View.extend({
         this.setTooltipText();
         this.setSectionHeight();
         this.setTooltips();
+        EB.application.checkAllContentLoaded();
     },
 
     events: {

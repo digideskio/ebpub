@@ -20,6 +20,26 @@ EB.application = (function () {
     };
 
 
+    var checkAllContentLoaded = function () {
+        var allContentLoaded = true,
+                thisRouter = this;
+
+        console.log('checking if all content is loaded');
+
+        $('.section-page').each(function () {
+            var $section = $(this);
+            if (!$('.section-inner', $section).length) {
+                allContentLoaded = false;
+            }
+        });
+        if (allContentLoaded) {
+            $('#page_loading').fadeOut('fast', function() {
+                EB.App.Router.scrollToView(Backbone.history.fragment.replace(/\//g, ''));
+            });
+        }
+    };
+
+
     var load = function () {
         EB.App.Router = new EB.Router();
         Backbone.history.start({pushState: true});
@@ -28,7 +48,8 @@ EB.application = (function () {
 
 
     return {
-        load: load
+        load: load,
+        checkAllContentLoaded: checkAllContentLoaded
     };
 
 
