@@ -21,7 +21,7 @@
     }
     .content-main {
         float: right;
-        width: 37%;
+        width: 34%;
     }
 }
 
@@ -37,7 +37,7 @@
     }
     .logo-explained {
         float: right;
-        width: 37%;
+        width: 34%;
     }
     .logo-about {
         padding: 0 10%;
@@ -47,7 +47,7 @@
 #contact {
     .content-main {
         float: left;
-        width: 37%;
+        width: 34%;
     }
     .contact-form {
         float: right;
@@ -56,4 +56,12 @@
     input {
         width: 65%;
     }
+}
+
+#colophon {
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
 }

@@ -8,11 +8,19 @@ div.section-inner
                 | If you’re interested in working with Experience Bureau, 
                 b please get in touch 
                 | so that we can get things started.
-            ul
-                li +61 466438677
-                li experiencebureau
+            ul.contact-details
                 li
+                    span.visuallyhidden Phone (mobile)
+                    | +61 466438677
+                    img.icon(src='/images/icon-phone.svg')
+                li 
+                    span.visuallyhidden Skype
+                    | experiencebureau
+                    img.icon(src='/images/icon-skype.svg')
+                li
+                    span.visuallyhidden Email
                     a(href='mailto:info@experiencebureau.com') info@experiencebureau.com
+                    img.icon(src='/images/icon-email.svg')
         form.contact-form
             .formRow
                 label(for='contact_name') Name

@@ -56,7 +56,22 @@ html.no-js
         //- block section_work
       section#contact.section-page(data-content_file='contact')
         //- CONTACT
-        block section_contact
+        block section_contact  
+    footer#colophon
+      p
+      | This site was built using 
+      a(href='http://yeoman.io/') Yeoman
+      | , 
+      a(href='gruntjs.com') Grunt
+      | , 
+      a(href='backbonejs.org') Backbone
+      | , 
+      a(href='jade-lang.com') Jade 
+      | and 
+      a(href='compass-style.org') Compass
+      | . Overkill? Possibly... But it was fun. 
+      a(href='https://github.com/peterchappell/ebpub') Take a look on github 
+      | if you're so inclined.
 
     // build:js(app) /scripts/main.js
     script(src='/components/jquery/jquery.js')
