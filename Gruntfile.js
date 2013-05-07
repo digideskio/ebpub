@@ -169,13 +169,13 @@ module.exports = function (grunt) {
                 }
             }
         },
-        // not used since Uglify task does concat,
-        // but still available if needed
+
+        // concat tied in with useminprep
         /*concat: {
             dist: {}
         },*/
 
-        // not used because this is handled by the yeoman build comment blocks in the templates
+        // uglify tied in with useminprep
         /*uglify: {
             dist: {
                 files: {
@@ -278,6 +278,20 @@ module.exports = function (grunt) {
             all: {
                 rjsConfig: '<%= yeoman.app %>/scripts/main.js'
             }
+        },
+        groundskeeper: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.dist %>/scripts',
+                    src: '**/*.js',
+                    dest: '<%= yeoman.dist %>/scripts'
+                }],
+                options: { 
+                    console: false,
+                    debugger: false
+                }
+            }
         }
     });
 
@@ -317,6 +331,7 @@ module.exports = function (grunt) {
         'imagemin',
         'htmlmin',
         'concat',
+        'groundskeeper:dist', // do the groundkeeping on the concatenated files before they're minified
         'cssmin',
         'uglify',
         'copy',
