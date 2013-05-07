@@ -11,25 +11,27 @@ div.section-inner
             ul.contact-details
                 li
                     span.visuallyhidden Phone (mobile)
-                    | +61 466438677
+                    a(href='callto:+61466438677') +61 466438677
                     img.icon(src='/images/icon-phone.svg')
                 li 
                     span.visuallyhidden Skype
-                    | experiencebureau
+                    a(href='skype:experiencebureau?call') experiencebureau
                     img.icon(src='/images/icon-skype.svg')
                 li
                     span.visuallyhidden Email
                     a(href='mailto:info@experiencebureau.com') info@experiencebureau.com
                     img.icon(src='/images/icon-email.svg')
-        form.contact-form
+        form#contact_form.contact-form(action='/mail_form_submit.php')
             .formRow
                 label(for='contact_name') Name
-                input#contact_name(type='text', name='contact_name')
+                input#contact_name(type='text', name='contact_name', required='required')
             .formRow
                 label(for='contact_email') Email address
-                input#contact_email(type='email', name='contact_email')
+                input#contact_email(type='email', name='contact_email', required='required')
             .formRow
                 label(for='contact_message') Message
-                textarea#contact_message(name='contact_message')
+                textarea#contact_message(name='contact_message', required='required')
             .formRow.formActions
                 button(type='submit') Send message
+        div#contact_success_message.contact-form.hidden
+            

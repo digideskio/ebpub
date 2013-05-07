@@ -3,10 +3,14 @@
 var EB = EB || {};
 EB.util.namespace('View');
 
+/**
+ * This is a simple view used for all of the main sections (including the contact section which has some specific functionality).
+ * */
+
 EB.View = Backbone.View.extend({
 
     initialize: function () {
-        _.bindAll(this, 'render', 'setSectionHeight', 'setTooltips', 'setTooltipText', 'handleFootnoteLinks', 'handleTooltipLink', 'handleSectionLink');
+        _.bindAll(this, 'render', 'setSectionHeight', 'setTooltips', 'setTooltipText', 'handleFootnoteLinks', 'handleTooltipLink', 'handleSectionLink', 'handleContactForm');
         this.setTooltipText();
         this.setSectionHeight();
         this.setTooltips();
@@ -15,7 +19,8 @@ EB.View = Backbone.View.extend({
     events: {
         'click .footnote-link': 'handleFootnoteLinks',
         'click .tip-link': 'handleTooltipLink',
-        'click .section-link': 'handleSectionLink'
+        'click .section-link': 'handleSectionLink',
+        'submit #contact_form': 'handleContactForm'
     },
 
     setSectionHeight: function () {
@@ -99,7 +104,26 @@ EB.View = Backbone.View.extend({
     handleSectionLink: function (ev) {
         ev.preventDefault();
         EB.App.Router.navigate($(ev.target).attr('href'), true);
-    }
+    },
 
+    handleContactForm: function (ev) {
+        ev.preventDefault();
+        var $form = this.$('#contact_form'),
+                $message = this.$('#contact_success_message');
+        
+        console.log('Message', $message.length, $message);
+        
+        $.post($form.attr('action'), {
+            contact_name: $('#contact_name').val(),
+            contact_email: $('#contact_email').val(),
+            contact_message: $('#contact_message').val()
+        },
+        function () {
+            $message.html('<div class="inner"><p>Thanks. Your message has been sent.</p><p>Have a nice day :)</p></div>');
+            $form.fadeOut('fast', function () {
+                $message.hide().removeClass('hidden').fadeIn('fast');
+            });
+        });
+    }
 
 });
