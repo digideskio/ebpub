@@ -72,11 +72,15 @@ EB.Router = Backbone.Router.extend({
     },
 
     scrollToView: function (id) {
-        _.delay(function () {
-            var targetOffset = $('#' + id).offset().top;
-            console.log('scroll to ', id);
-            $('html:not(:animated),body:not(:animated)').animate({scrollTop: targetOffset}, 350);
-        }, 300);
+        var $sectionToScrollTo = $('#' + id);
+
+        if ($sectionToScrollTo.length) {
+            _.delay(function () {
+                var targetOffset = $sectionToScrollTo.offset().top;
+                console.log('scroll to ', id);
+                $('html:not(:animated),body:not(:animated)').animate({scrollTop: targetOffset}, 350);
+            }, 300);
+        }
     }
 
 

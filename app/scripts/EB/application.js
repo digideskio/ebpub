@@ -22,7 +22,7 @@ EB.application = (function () {
 
     var checkAllContentLoaded = function () {
         var allContentLoaded = true,
-                thisRouter = this;
+                $loader = $('#page_loading');
 
         console.log('checking if all content is loaded');
 
@@ -33,8 +33,10 @@ EB.application = (function () {
             }
         });
         if (allContentLoaded) {
-            $('#page_loading').fadeOut('fast', function() {
-                EB.App.Router.scrollToView(Backbone.history.fragment.replace(/\//g, ''));
+            $('.box', $loader).fadeOut('fast', function () {
+                $loader.fadeOut('fast', function() {
+                    EB.App.Router.scrollToView(Backbone.history.fragment.replace(/\//g, ''));
+                });
             });
         }
     };

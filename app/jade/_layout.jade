@@ -73,7 +73,10 @@ html.no-js
       a(href='https://github.com/peterchappell/ebpub') Take a look on github 
       | if you're so inclined.
       
-    div#page_loading Loading...
+    div#page_loading 
+      div.box
+        div.loading-animation
+        p Loading...
 
     // build:js(app) /scripts/main.js
     script(src='/components/jquery/jquery.js')

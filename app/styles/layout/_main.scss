@@ -166,5 +166,46 @@
     right: 0;
     top: 0;
     z-index: 1;
+    .box {
+        left: 0;
+        position: fixed;
+        right: 0;
+        text-align: center;
+        top: 150px;
+    }
+    .loading-animation {
+        border: 8px solid #FFF;
+        border-bottom: 8px solid #CCC;
+        border-right: 8px solid #CCC;
+        display: block;
+        height: 50px;
+        margin: auto;
+        width: 50px;
+        @include border-radius(50%);
+        -webkit-animation: rotate 1s infinite linear;
+        -moz-animation: rotate 1s infinite linear;
+        -ms-animation: rotate 1s infinite linear;
+        animation: rotate 1s infinite linear;
+    }
+    p {
+        color: #666;
+        margin-top: 2em;
+    }
 }
 
+@-webkit-keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+@-ms-keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+@keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}

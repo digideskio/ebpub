@@ -85,7 +85,7 @@ EB.View = Backbone.View.extend({
                     $origin = thisView.getClickedTipLink($origin);
                     $body.on('click', function (ev) {
                         console.log('close a tip');
-                        ev.preventDefault();
+                        //ev.preventDefault();
                         if (! thisView.getClickedTipLink($(ev.target)).hasClass('tip-link')) {
                             $origin.tooltipster('hide');
                         }
