@@ -51,6 +51,7 @@
 .tip-text-inner {
     position: relative;
     h1 {
+        font-weight: bold;
         margin-top: 0.5em;
         @include adjust-font-size-to( $h4-font-size );
     }
@@ -137,7 +138,7 @@
         .icon {
             float: left;
             height: 18px;
-            max-width: 18px;
+            width: 18px;
             margin: 0 0.5em 0 0;
             vertical-align: middle;
         }
@@ -148,6 +149,16 @@
         background-color: #f5f5f5;
         border: 1px solid #ccc;
         padding: 2em;
+    }
+}
+.no-cssgradients {
+    #contact {
+        button {
+            background-color: scale-lightness($eb-dkBlue, 5%);
+        }
+        button:hover {
+            background-color: scale-lightness($eb-dkBlue, 15%);
+        }        
     }
 }
 

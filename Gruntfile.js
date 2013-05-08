@@ -301,6 +301,9 @@ module.exports = function (grunt) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
         }
+        if (target === 'ietesting') {
+            return grunt.task.run(['clean:server','compass:server','jade','connect:livereload','open','watch']);
+        }
 
         grunt.task.run([
             'clean:server',

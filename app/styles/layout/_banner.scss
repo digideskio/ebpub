@@ -41,3 +41,9 @@
         width: 20px;
     }
 }
+
+.no-cssgradients {
+    #banner {
+        background-color: scale-lightness($eb-black, 10%);
+    }
+}

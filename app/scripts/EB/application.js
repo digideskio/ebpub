@@ -13,20 +13,24 @@ EB.application = (function () {
         if (Backbone.history.fragment.replace(/\//g, '') === clickedTarget) {
             EB.App.Router.scrollToView(clickedTarget);
         } else {
-            EB.App.Router.navigate(clickedTarget, true);
+            if (! Modernizr.history) {
+                EB.App.Router.scrollToView(clickedTarget, true);
+            } else {
+                EB.App.Router.navigate(clickedTarget, true);
+            }
         }
     };
     
 
     var handleLinks = function () {
-        $('#banner a').on('click', function () {
+        $('#banner a').on('click', function (ev) {
             var $clicked = $(this);
 
             console.log('clicked', $clicked.attr('href'), $clicked);
 
             if (!$clicked.hasClass('noPush')) {
+                ev.preventDefault();
                 handleSectionLink($clicked);
-                return false;
             }
         });
     };
@@ -52,8 +56,8 @@ EB.application = (function () {
             });
         }
     };
-
-
+    
+    
     var load = function () {
         EB.App.Router = new EB.Router();
         Backbone.history.start({pushState: true});

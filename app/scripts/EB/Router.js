@@ -71,14 +71,23 @@ EB.Router = Backbone.Router.extend({
         });
     },
 
-    scrollToView: function (id) {
-        var $sectionToScrollTo = $('#' + id);
+    scrollToView: function (id, thenNavigate) {
+        var identifier = id,
+                $sectionToScrollTo;
+        
+        if (id.indexOf('#') === -1) {
+            identifier = '#' + id;
+        }
+        $sectionToScrollTo = $(identifier);
 
         if ($sectionToScrollTo.length) {
             _.delay(function () {
                 var targetOffset = $sectionToScrollTo.offset().top;
                 console.log('scroll to ', id);
                 $('html:not(:animated),body:not(:animated)').animate({scrollTop: targetOffset}, 350);
+                if (thenNavigate) {
+                    EB.App.Router.navigate(identifier, true);
+                }
             }, 300);
         }
     }
