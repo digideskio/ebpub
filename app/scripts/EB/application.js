@@ -5,6 +5,18 @@ EB.util.namespace('application');
 
 EB.application = (function () {
 
+    var handleSectionLink = function ($clicked) {
+        var clickedTarget = $clicked.attr('href').replace(/\//g, '').replace('#','');
+
+        console.log('clicked a section link', clickedTarget, Backbone.history.fragment.replace(/\//g, ''));
+
+        if (Backbone.history.fragment.replace(/\//g, '') === clickedTarget) {
+            EB.App.Router.scrollToView(clickedTarget);
+        } else {
+            EB.App.Router.navigate(clickedTarget, true);
+        }
+    };
+    
 
     var handleLinks = function () {
         $('#banner a').on('click', function () {
@@ -13,7 +25,7 @@ EB.application = (function () {
             console.log('clicked', $clicked.attr('href'), $clicked);
 
             if (!$clicked.hasClass('noPush')) {
-                EB.App.Router.navigate($clicked.attr('href'), true);
+                handleSectionLink($clicked);
                 return false;
             }
         });
@@ -51,7 +63,8 @@ EB.application = (function () {
 
     return {
         load: load,
-        checkAllContentLoaded: checkAllContentLoaded
+        checkAllContentLoaded: checkAllContentLoaded,
+        handleSectionLink: handleSectionLink
     };
 
 

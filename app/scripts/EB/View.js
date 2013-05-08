@@ -104,7 +104,9 @@ EB.View = Backbone.View.extend({
     
     handleSectionLink: function (ev) {
         ev.preventDefault();
-        EB.App.Router.navigate($(ev.target).attr('href'), true);
+        var $clicked = $(ev.target);
+
+        EB.application.handleSectionLink($clicked);
     },
 
     handleContactForm: function (ev) {
