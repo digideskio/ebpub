@@ -14,6 +14,9 @@ EB.application = (function () {
             EB.App.Router.scrollToView(clickedTarget);
         } else {
             if (! Modernizr.history) {
+                if (clickedTarget === '') {
+                    clickedTarget = 'home';
+                }
                 EB.App.Router.scrollToView(clickedTarget, true);
             } else {
                 EB.App.Router.navigate(clickedTarget, true);
