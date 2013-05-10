@@ -10,9 +10,10 @@ EB.util.namespace('View');
 EB.View = Backbone.View.extend({
 
     initialize: function () {
-        _.bindAll(this, 'render', 'setSectionHeight', 'setTooltips', 'setTooltipText', 'handleFootnoteLinks', 'handleTooltipLink', 'handleSectionLink', 'handleContactForm');
+        _.bindAll(this, 'render', 'setSectionHeight', 'setTooltips', 'setTooltipText', 'handleFootnoteLinks', 'handleTooltipLink', 'handleSectionLink', 'handleContactForm', 'doSvgCompatibility');
         this.setTooltipText();
         this.setSectionHeight();
+        this.doSvgCompatibility();
         this.setTooltips();
         EB.application.checkAllContentLoaded();
     },
@@ -33,6 +34,10 @@ EB.View = Backbone.View.extend({
         paddingHeight = paddingHeight + 'px';
         console.log('setting section height', $(window).height(), this.$('.section-inner').height(), paddingHeight, this.$el);
         this.$el.css('padding-top', paddingHeight).css('padding-bottom', paddingHeight);
+    },
+
+    doSvgCompatibility: function () {
+        EB.util.handleSvgCompatibility(this.$('img'));
     },
 
     handleFootnoteLinks: function (ev) {

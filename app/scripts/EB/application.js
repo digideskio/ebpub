@@ -64,6 +64,7 @@ EB.application = (function () {
     var load = function () {
         EB.App.Router = new EB.Router();
         Backbone.history.start({pushState: true});
+        EB.util.handleSvgCompatibility($('#banner img'));
         handleLinks();
     };
 

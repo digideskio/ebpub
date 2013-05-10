@@ -58,7 +58,8 @@
                 if(trim($contact_name)!='' && trim($mail_from)!='' && trim($contact_message)!='') {
                     $send_contact=mail($to,$subject,$message,$header);
                     if($send_contact){
-                        echo "<p>Thanks for sending the message.</p><p>All the best.</p>";
+                        echo "<p>Thanks for sending the message. All the best.</p>";
+                        echo '<p><a href="http://www.experiencebureau.com">< Go back to the Experience Bureau website</a>.</p>';
                     }
                     else {
                         echo $errorMessageToShow;

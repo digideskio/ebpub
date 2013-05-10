@@ -26,9 +26,19 @@ EB.util = (function () {
         }
         return parent;
     };
+    
+    var handleSvgCompatibility = function ($images) {
+        if (!Modernizr.svg) {
+            $images.each(function () {
+                var $img = $(this);
+                $img.attr('src', $img.attr('src').replace('.svg', '.png'));
+            });
+        }
+    };
 
     return {
-        namespace: namespace
+        namespace: namespace,
+        handleSvgCompatibility: handleSvgCompatibility
     };
 
 })();

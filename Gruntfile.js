@@ -167,6 +167,11 @@ module.exports = function (grunt) {
                 options: {
                     debugInfo: true
                 }
+            },
+            ietesting: {
+                options: {
+                    debugInfo: false
+                }                
             }
         },
 
@@ -223,8 +228,10 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     '<%= yeoman.dist %>/styles/main.css': [
-                        '.tmp/styles/{,*/}*.css',
-                        '<%= yeoman.app %>/styles/{,*/}*.css'
+                        '.tmp/styles/main.css'
+                    ],
+                    '<%= yeoman.dist %>/styles/ie.css': [
+                        '.tmp/styles/ie.css'
                     ]
                 }
             }
@@ -302,7 +309,7 @@ module.exports = function (grunt) {
             return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
         }
         if (target === 'ietesting') {
-            return grunt.task.run(['clean:server','compass:server','jade','connect:livereload','open','watch']);
+            return grunt.task.run(['clean:server','compass:ietesting','jade','connect:livereload','open','watch']);
         }
 
         grunt.task.run([
