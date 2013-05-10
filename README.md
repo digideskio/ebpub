@@ -2,7 +2,7 @@
 
 This site was built using Yeoman, Grunt, Backbone, Jade and Compass.
 
-## Why all the tech for such a simple site.
+## Why all the tech for such a simple site?
 
 Mostly for fun to be fair. But there was some reasoning...
 
@@ -34,7 +34,8 @@ I ended up using the one view for all of the pages which is a bit lazy but for s
 
 ## Additional notes
 
-The Groundskeeper Grunt plugin was a bit of a find. Makes it very easy to strip out all console statements before publishing.
+The Groundskeeper Grunt plugin was a bit of a find. Makes it very easy to strip out all console statements before publishing. 
+https://github.com/Couto/grunt-groundskeeper
 
 This is my first time experimenting with SVG for the graphics. I must say it was almost disappointingly non-eventful. Don't know why I haven't been using
-SVG before now.
+SVG before now. This page was a good reference: http://css-tricks.com/using-svg/
